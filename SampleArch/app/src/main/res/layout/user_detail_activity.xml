@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools">
+
+    <data>
+        <variable name="userDetailViewModel" type="com.bins.presentation.userdetails.UserDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/userImageLarge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:minHeight="@dimen/userImageSize"
+            android:src="@drawable/ic_menu_camera"
+            app:layout_constraintBottom_toTopOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userDetailViewModel.getUserLiveData.fname + userDetailViewModel.getUserLiveData.lname}"
+            android:textSize="@dimen/textSizeUname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline1"
+            tools:text="Biinl Thomas" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@{userDetailViewModel.getUserLiveData.location}"
+            android:textSize="@dimen/textSizeUname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userName"
+            android:layout_marginStart="@dimen/margin_user_cell"
+            android:layout_marginEnd="@dimen/margin_user_cell"
+            tools:text="Kozhikiode" />
+
+        <TextView
+            android:id="@+id/dob"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@{userDetailViewModel.getUserLiveData.dob}"
+            android:textSize="@dimen/textSizeUname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/location"
+            tools:text="24/01/1984" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@{userDetailViewModel.getUserLiveData.phone}"
+            android:textSize="@dimen/textSizeUname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dob"
+            tools:text="+918113873716" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@{userDetailViewModel.getUserLiveData.email}"
+            android:textSize="@dimen/textSizeUname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone"
+            tools:text="binsdreams@gmail.com" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

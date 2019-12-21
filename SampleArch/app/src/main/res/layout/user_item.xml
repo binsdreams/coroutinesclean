@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools">
+
+    <data>
+        <variable name="userViewModel" type="com.bins.presentation.home.UserIViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:onClick="@{userViewModel.onClickUser}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="@dimen/userImageSize"
+            android:layout_height="@dimen/userImageSize"
+            android:src="@drawable/ic_menu_camera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Biinl Thomas"
+            android:textSize="@dimen/textSizeUname"
+            android:layout_marginTop="@dimen/margin_user_cell"
+            android:layout_marginStart="@dimen/fab_margin"
+            app:layout_constraintStart_toEndOf="@+id/userImage"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{userViewModel.name}"/>
+
+        <TextView
+            android:id="@+id/dateofBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Gender"
+            android:textSize="@dimen/textSubText"
+            android:layout_marginStart="@dimen/fab_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userImage"
+            app:layout_constraintTop_toBottomOf="@+id/userName"
+            android:layout_marginBottom="@dimen/margin_user_cell"
+            android:text="@{userViewModel.getGender}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
